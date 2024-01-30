@@ -1,0 +1,11 @@
+<mat-drawer-container class="min-h-screen w-full bg-gray-50" autosize>
+  <mat-drawer #sidenav class="h-full" mode="side" >
+    <app-sidenav [links]="links"></app-sidenav>
+  </mat-drawer>
+  <div class="min-h-screen flex flex-col">
+    <app-navbar (sideNavToggler)="toggleSideNav()" ></app-navbar>
+    <div class="flex-grow flex flex-col mx-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
