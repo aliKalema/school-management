@@ -2,22 +2,21 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Link, NavigationService} from "../../../shared/service/navigation.service";
 
 @Component({
-  selector: 'app-teacher-dashboard',
+  selector: 'app-feed-back',
   standalone: true,
   imports: [],
-  templateUrl: './teacher-dashboard.component.html',
-  styleUrl: './teacher-dashboard.component.css'
+  templateUrl: './feed-back.component.html',
+  styleUrl: './feed-back.component.css'
 })
-export class TeacherDashboardComponent implements OnInit{
+export class FeedBackComponent implements OnInit{
   currentLocation: Link = {
-    path: ["teacher","dashboard"],
-    title: "Dashboard",
+    path: ["teacher", "feedback"],
+    title: "Feedback",
     url: "",
     expanded: false
   }
   private navigationService: NavigationService = inject(NavigationService);
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.navigationService.setCurrentLocation(this.currentLocation);
   }
 }

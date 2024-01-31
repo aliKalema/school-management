@@ -19,5 +19,17 @@ export class TeacherComponent {
       icon: 'dashboard',
       expanded: false
     },
+    {
+      title: "Assignment",
+      url: 'assignment',
+      icon: 'assignment',
+      expanded: false
+    },
+    {
+      title: "FeedBack",
+      url: 'feedback',
+      icon: 'forum',
+      expanded: false
+    },
   ];
 }
