@@ -24,7 +24,6 @@ export class TeacherTableComponent {
     return numSelected === this.teachers.length;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows() {
     if (this.isAllSelected()) {
       this.selection.clear();

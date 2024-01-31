@@ -1,9 +1,10 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {PDFDocumentProxy, PdfViewerModule} from "ng2-pdf-viewer";
 import {MaterialModule} from "../../../material.module";
 import {ReportService} from "../../../shared/service/report.service";
 import printJS from "print-js";
 import {Link, NavigationService} from "../../../shared/service/navigation.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-report',
@@ -12,24 +13,24 @@ import {Link, NavigationService} from "../../../shared/service/navigation.servic
   templateUrl: './report.component.html',
   styleUrl: './report.component.css'
 })
-export class ReportComponent implements OnInit{
+export class ReportComponent implements OnInit, OnDestroy{
   pdfSrc!: any;
   currentLocation: Link = {
-    path: ["report"],
+    path: ["admin", "report"],
     title: "Report",
     url: "",
     expanded: false
   }
   currentLink: string= "assets/reports/school_performance.pdf";
 
+  reports: Array<Report> = [];
+  private reportSub: Subscription | undefined;
   private reportService: ReportService = inject(ReportService);
   private navigationService: NavigationService = inject(NavigationService);
 
   ngOnInit(): void {
     this.loadPdf("assets/reports/school_performance.pdf");
     this.navigationService.setCurrentLocation(this.currentLocation);
-  }
-  afterLoadComplete(pdf: PDFDocumentProxy): void {
   }
 
   loadPdf(pdfFileName: string): void {
@@ -58,5 +59,11 @@ export class ReportComponent implements OnInit{
 
   printPdf(): void {
     printJS({printable: this.currentLink, type:'pdf', showModal:true})
+  }
+
+  ngOnDestroy(): void{
+    if(this.reportSub){
+      this.reportSub.unsubscribe();
+    }
   }
 }

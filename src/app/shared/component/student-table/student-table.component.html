@@ -1,1 +1,85 @@
-<p>student-table works!</p>
+<div class="my-3">
+  <table mat-table [dataSource]="students" matSort ="mat-elevation-z8">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell class="border-b-slate-700 border-b-4 bg-gray-200" *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by name"> <span class="flex justify-center font-semibold">First Name</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by name"> <span class="flex justify-center font-semibold">Last Name</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Total Quantity"> <span class="flex justify-center font-semibold">Phone</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dob">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Email</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="classs">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Employee ID</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.classs}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
+      <td mat-cell *matCellDef="let element">{{element.address}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="parentName">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Employee ID</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.parentName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="parentContact">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
+      <td mat-cell *matCellDef="let element">{{element.parentContact}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subjects">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
+      <td mat-cell *matCellDef="let element">{{element.subjects}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef><span class="flex justify-center font-semibold">Action</span></th>
+      <td mat-cell *matCellDef="let element">
+        <div class="flex justify-end container w-auto items-center h-full">
+          <button type="button" class="text-slate-800 container w-auto items-center justify-center flex outline-none transform active:scale-75 transition-transform">
+            <mat-icon class="text-lg">visibility</mat-icon>
+          </button>
+          <button type="button"  class="text-green-600 container w-auto items-center justify-center flex outline-none transform active:scale-75 transition-transform">
+            <mat-icon class="text-lg">edit</mat-icon>
+          </button>
+          <button type="button"  class="text-red-400 container w-auto items-center justify-center flex outline-none transform active:scale-75 transition-transform">
+            <mat-icon class="text-lg">delete</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="selection.toggle(row)">
+    </tr>
+  </table>
+</div>

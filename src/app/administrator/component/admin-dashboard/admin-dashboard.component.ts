@@ -22,7 +22,7 @@ import {SubjectTableComponent} from "../../../shared/component/subject-table/sub
 })
 export class AdminDashboardComponent implements OnInit, OnDestroy{
   currentLocation: Link = {
-    path: ["dashboard"],
+    path: ["admin", "dashboard"],
     title: "Dashboard",
     url: "",
     expanded: false
