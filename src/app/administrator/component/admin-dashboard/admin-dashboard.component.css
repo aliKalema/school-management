@@ -1,0 +1,5 @@
+
+/* Optionally set the canvas width to 100% */
+.chart-container canvas {
+  width: 100%;
+}

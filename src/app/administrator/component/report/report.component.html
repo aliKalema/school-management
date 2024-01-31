@@ -1,0 +1,60 @@
+<div class="w-full flex flex-grow">
+  <div class="w-4/12">
+    <div class="flex justify-between container items-center">
+      <div class="text-lg font-semibold text-slate-600  container items-center w-auto"> Reports </div>
+      <div class="flex container items-center w-auto">
+        <!--        <div class="flex container w-auto items-center">-->
+        <!--          <app-search class="mr-1 w-48" (onSearch)="onSearch($event)"></app-search>-->
+        <!--        </div>-->
+        <div class="flex container w-auto items-center mx-1">
+          <button routerLink="add" mat-raised-button type="button" class="bg-blue-500 text-white mr-1">
+            <mat-icon class="text-gray-200">add</mat-icon>
+            New
+          </button>
+
+        </div>
+        <div class="">
+          <button type="button"  class="mr-1 p2 w-9 h-9 container items-center justify-center flex bg-white border border-slate-500 rounded-md outline-none shadow-lg transform active:scale-75 transition-transform">
+            <mat-icon class="h-6 w-6 text-slate-500">more_horiz</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-divider vertical class="mx-2"></mat-divider>
+  <div class="w-8/12 pl-4">
+    <header class="flex container items-center justify-between mb-4">
+      <div class="flex border border-slate-400 rounded-md overflow-hidden">
+        <button type="button" (click)="downloadPdf()"  class="bg-gray-200  p2 w-10 h-9 container items-center justify-center flex  border border-r-slate-300 outline-none shadow-lg transform active:scale-75 transition-transform">
+          <mat-icon class="h-6 w-6 text-slate-700">download</mat-icon>
+        </button>
+        <button type="button" (click)="printPdf()"  class="bg-gray-200  p2 w-10 h-9 container items-center justify-center flex  border border-r-slate-300 outline-none shadow-lg transform active:scale-75 transition-transform">
+          <mat-icon class="h-6 w-6 text-slate-700">print</mat-icon>
+        </button>
+
+      </div>
+      <div class="">
+        <button type="button"  class="bg-gray-200 mr-1 p2 w-18 h-9 container items-center justify-between flex border border-r-slate-400 rounded-md outline-none shadow-lg transform active:scale-75 transition-transform px-3">
+          <span class="text-slate-700 font-semibold">More</span>
+          <mat-icon class="text-slate-500">expand_more</mat-icon>
+        </button>
+      </div>
+    </header>
+    <div class="pb-6">
+      <div class="relative overflow-hidden w-full">
+        <pdf-viewer  #pdfViewer
+                     [src]="pdfSrc"
+                     [show-all]="true"
+                     [render-text]="true"
+                     [original-size]="false"
+                     [style.height]="'100vh'"
+                     [style.width]="'100%'"
+                     [fit-to-page]="true"
+                     [autoresize]="true"
+                     [show-borders]="true"
+                     [style.margin-outside]="0">
+        </pdf-viewer>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,6 +23,18 @@ export class AdministratorComponent{
       icon: 'dashboard',
       expanded: false
     },
+    {
+      title: "Student",
+      url: 'student',
+      icon: 'groups',
+      expanded: false
+    },
+    {
+      title: "Report",
+      url: 'report',
+      icon: 'article',
+      expanded: false
+    },
   ];
 }
 
