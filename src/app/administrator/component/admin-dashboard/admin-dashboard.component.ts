@@ -11,6 +11,8 @@ import {SubjectService} from "../../../shared/service/subject.service";
 import {TeacherService} from "../../../shared/service/teacher.service";
 import {Teacher} from "../../../shared/interface/teacher";
 import {SubjectTableComponent} from "../../../shared/component/subject-table/subject-table.component";
+import {GraphService} from "../../../shared/service/graph.service";
+import {StudentService} from "../../../shared/service/student.service";
 
 
 @Component({
@@ -37,54 +39,15 @@ export class AdminDashboardComponent implements OnInit, OnDestroy{
   teachers: Array<Teacher> = [];
   teacherSub: Subscription | undefined;
 
-  ngOnInit(): void {
-    this.navigationService.setCurrentLocation(this.currentLocation);
-    this.subjectSub = this.subjectService.getSubjects().subscribe((res)=>{
-      this.subjects = res;
-    })
-    this.teacherSub = this.teacherService.getTeachers().subscribe((res)=>{
-      this.teachers = res;
-    })
-  }
+  private studentService = inject(StudentService);
+  studentSub: Subscription | undefined;
 
-  public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ],
+  private graphService = inject(GraphService);
 
-    datasets: [
-      {
-        data: [ 40, 45, 50, 55, 60, 65, 70, 75, 70, 60, 50, 45 ],
-        label: 'Angular',
-        fill: true,
-        tension: 0.5,
-        borderColor: 'rgba(148,159,177,1)',
-        backgroundColor: 'rgb(59 130 246)',
-        pointBorderColor: '#fff',
-        pointBackgroundColor: 'rgba(148,159,177,1)',
-      }
-    ]
-  };
-  public lineChartOptions: ChartOptions<'line'> = {
-    responsive: true
-  };
-
+  public pieChartData!: ChartData<'pie', number[], string | string[]>;
+  public lineChartData!: ChartConfiguration<'line'>['data'];
   public lineChartLegend = false;
-
-
-  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-
+  public lineChartOptions: ChartOptions<'line'> = { responsive: true };
   public barChartOptions: ChartConfiguration['options'] = {
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
@@ -100,55 +63,9 @@ export class AdminDashboardComponent implements OnInit, OnDestroy{
     },
   };
   public barChartType: ChartType = 'bar';
-  //public barChartPlugins = [DataLabelsPlugin];
-
-  public barChartData: ChartData<'bar'> = {
-    labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
-    datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    ],
-  };
-
-  // events
-  public chartClicked({
-                        event,
-                        active,
-                      }: {
-    event?: ChartEvent;
-    active?: object[];
-  }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({
-                        event,
-                        active,
-                      }: {
-    event?: ChartEvent;
-    active?: object[];
-  }): void {
-    console.log(event, active);
-  }
-
-  public randomize(): void {
-    // Only Change 3 values
-    this.barChartData.datasets[0].data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      Math.round(Math.random() * 100),
-      56,
-      Math.round(Math.random() * 100),
-      40,
-    ];
-
-    this.chart?.update();
-  }
-
-
-
-  // Pie
+  public barChartData!: ChartData<'bar'>;
+  @ViewChild(BaseChartDirective)
+  chart: BaseChartDirective | undefined;
   public pieChartOptions: ChartConfiguration['options'] = {
     plugins: {
       legend: {
@@ -157,16 +74,82 @@ export class AdminDashboardComponent implements OnInit, OnDestroy{
       },
     },
   };
-  public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'],
-    datasets: [
-      {
-        data: [300, 500, 100],
-      },
-    ],
-  };
   public pieChartType: ChartType = 'pie';
+  teachersSize: number =0;
+  studentsSize: number = 0;
 
+  ngOnInit(): void {
+    this.navigationService.setCurrentLocation(this.currentLocation);
+    this.subjectSub = this.subjectService.getSubjects().subscribe((res)=>{
+      this.subjects = res;
+    })
+    this.teacherSub = this.teacherService.getTeachers().subscribe((res)=>{
+      this.teachers = res;
+    })
+
+    this.studentSub = this.studentService.getStudents().subscribe((res)=>{
+      this.studentsSize = res.length;
+    })
+
+    this.graphService.getTeacherPerformance().subscribe((res)=>{
+      const summaries = res;
+      if(summaries.length>0){
+        const labels:string[] = [];
+        const values:number[] = [];
+        summaries.forEach((sm)=>{
+          labels.push(sm.period);
+          values.push(sm.value);
+        })
+        this.lineChartData = {
+          labels: labels,
+          datasets: [
+            {
+              data: values,
+              fill: true,
+              tension: 0.5,
+              borderColor: 'rgba(148,159,177,1)',
+              backgroundColor: 'rgb(59 130 246)',
+              pointBorderColor: '#fff',
+              pointBackgroundColor: 'rgba(148,159,177,1)',
+            }
+          ]
+        };
+      }
+    })
+    this.graphService.getSubjectPerformance().subscribe((res)=>{
+      const data = res;
+      let lb1 = "";
+      let lb2 = "";
+      const data1: number[] = []
+      const data2: number[] = []
+      const labels: string[] = [];
+      data.forEach(d=>{
+        labels.push(d.period);
+        lb1 = d.data[0].period;
+        lb2 = d.data[1].period;
+        data1.push(d.data[0].value)
+        data2.push(d.data[1].value)
+      })
+      console.log(labels);
+      this.barChartData= {
+        labels: labels,
+        datasets: [
+          {data: data1, label: lb1},
+          {data: data2, label: lb2},
+        ],
+      };
+    })
+    this.graphService.getLateness().subscribe((res)=>{
+      this.pieChartData= {
+        labels: res.labels,
+        datasets: [
+          {
+            data: res.values,
+          },
+        ],
+      };
+    });
+  }
 
   ngOnDestroy() {
     if(this.teacherSub){
@@ -175,6 +158,10 @@ export class AdminDashboardComponent implements OnInit, OnDestroy{
 
     if(this.subjectSub){
       this.subjectSub.unsubscribe();
+    }
+
+    if(this.studentSub){
+      this.studentSub.unsubscribe();
     }
   }
 

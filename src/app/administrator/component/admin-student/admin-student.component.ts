@@ -27,9 +27,13 @@ export class AdminStudentComponent implements OnInit, OnDestroy{
   students: Array<Student> = [];
 
   private studentSub: Subscription | undefined;
+  private studentService = inject(StudentService);
 
   ngOnInit(): void {
     this.navigationService.setCurrentLocation(this.currentLocation);
+    this.studentSub = this.studentService.getStudents().subscribe((res)=>{
+      this.students = res;
+    })
   }
 
   ngOnDestroy(): void {

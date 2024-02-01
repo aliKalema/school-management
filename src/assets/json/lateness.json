@@ -1,0 +1,4 @@
+{
+  "labels": ["On Time", "Late", "Absent"],
+  "values": [80, 17, 3]
+}
