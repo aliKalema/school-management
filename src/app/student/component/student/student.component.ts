@@ -1,7 +1,9 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {LayoutComponent} from "../../../shared/component/layout/layout.component";
-import {Link, NavigationService} from "../../../shared/service/navigation.service";
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {MaterialModule} from "../../../material.module";
+import {StudentService} from "../../../shared/service/student.service";
+import {AuthService} from "../../../shared/service/auth.service";
+import {Subscription} from "rxjs";
+import {Student} from "../../../shared/interface/student";
 
 @Component({
   selector: 'app-student',
@@ -12,14 +14,30 @@ import {MaterialModule} from "../../../material.module";
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
-export class StudentComponent{
-  protected links: Array<Link>=[
-    {
-      title: "Dashboard",
-      url: 'dashboard',
-      icon: 'dashboard',
-      expanded: false
-    },
-  ];
+export class StudentComponent implements OnInit, OnDestroy{
+  private studentService = inject(StudentService);
 
+  private authService = inject(AuthService);
+  private studentSub: Subscription | undefined;
+  protected student!: Student;
+
+  ngOnInit(): void {
+    this.studentSub = this.studentService.getStudent(this.authService.profile.id).subscribe(res=>{
+      if(res){
+        this.student = res;
+      }
+    })
+  }
+
+
+  logout() {
+    window.location.reload();
+  }
+
+  ngOnDestroy(): void {
+    if(this.studentSub){
+      this.studentSub.unsubscribe();
+
+    }
+  }
 }

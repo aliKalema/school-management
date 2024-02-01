@@ -4,12 +4,14 @@ import {MaterialModule} from "../../../material.module";
 import {ReportService} from "../../../shared/service/report.service";
 import printJS from "print-js";
 import {Link, NavigationService} from "../../../shared/service/navigation.service";
+import{Report} from "../../../shared/interface/report";
 import {Subscription} from "rxjs";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-report',
   standalone: true,
-  imports: [PdfViewerModule, MaterialModule],
+  imports: [PdfViewerModule, MaterialModule, DatePipe],
   templateUrl: './report.component.html',
   styleUrl: './report.component.css'
 })
@@ -21,7 +23,7 @@ export class ReportComponent implements OnInit, OnDestroy{
     url: "",
     expanded: false
   }
-  currentLink: string= "assets/reports/school_performance.pdf";
+  currentLink: string= "";
 
   reports: Array<Report> = [];
   private reportSub: Subscription | undefined;
@@ -31,6 +33,9 @@ export class ReportComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.loadPdf("assets/reports/school_performance.pdf");
     this.navigationService.setCurrentLocation(this.currentLocation);
+    this.reportSub = this.reportService.getReport().subscribe(res=>{
+      this.reports = res;
+    })
   }
 
   loadPdf(pdfFileName: string): void {
@@ -65,5 +70,10 @@ export class ReportComponent implements OnInit, OnDestroy{
     if(this.reportSub){
       this.reportSub.unsubscribe();
     }
+  }
+
+  selectReport(url: string) {
+    this.currentLink = `assets/reports/${url}`
+    this.loadPdf(this.currentLink);
   }
 }

@@ -3,22 +3,18 @@
     <div class="flex justify-between container items-center">
       <div class="text-lg font-semibold text-slate-600  container items-center w-auto"> Reports </div>
       <div class="flex container items-center w-auto">
-        <!--        <div class="flex container w-auto items-center">-->
-        <!--          <app-search class="mr-1 w-48" (onSearch)="onSearch($event)"></app-search>-->
-        <!--        </div>-->
-        <div class="flex container w-auto items-center mx-1">
-          <button routerLink="add" mat-raised-button type="button" class="bg-blue-500 text-white mr-1">
-            <mat-icon class="text-gray-200">add</mat-icon>
-            New
-          </button>
 
-        </div>
-        <div class="">
-          <button type="button"  class="mr-1 p2 w-9 h-9 container items-center justify-center flex bg-white border border-slate-500 rounded-md outline-none shadow-lg transform active:scale-75 transition-transform">
-            <mat-icon class="h-6 w-6 text-slate-500">more_horiz</mat-icon>
-          </button>
-        </div>
       </div>
+    </div>
+    <div class="">
+      @for (report of reports; track report) {
+        <mat-list-item class="hover:bg-slate-200 pointer-events-auto active:bg-blue-100" (click)="selectReport(report.url)">
+          <input type="checkbox" id="" value="" class="hidden peer" required="">
+          <mat-icon matListItemIcon>folder</mat-icon>
+          <div matListItemTitle>{{report.name}}</div>
+          <div matListItemLine>{{report.url}}</div>
+        </mat-list-item>
+      }
     </div>
   </div>
   <mat-divider vertical class="mx-2"></mat-divider>
