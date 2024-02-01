@@ -6,7 +6,7 @@ import {PageNotFoundComponent} from "./shared/component/page-not-found/page-not-
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
