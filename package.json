@@ -22,6 +22,7 @@
     "@angular/router": "^17.0.0",
     "chart.js": "^4.3.0",
     "ng2-charts": "^5.0.4",
+    "angular-split": "^17.1.1",
     "ng2-pdf-viewer": "^10.0.0",
     "print-js": "^1.6.0",
     "rxjs": "~7.8.0",

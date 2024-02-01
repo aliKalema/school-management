@@ -10,3 +10,20 @@ app-report{
   flex-grow: 1 !important;
   display: flex;
 }
+
+app-assignment{
+  flex-direction: column;
+  flex-grow: 1 !important;
+  display: flex;
+}
+
+app-feed-back{
+  flex-direction: column;
+  flex-grow: 1 !important;
+  display: flex;
+}
+
+.show-border .mat-mdc-tab-label-container{
+  border-bottom: 1px solid #b3b3b3 !important;
+}
+

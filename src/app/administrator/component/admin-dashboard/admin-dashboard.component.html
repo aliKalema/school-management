@@ -57,14 +57,20 @@
   <div class="flex flex-col md:flex-row my-6 gap-3">
     <div class="w-full bg-white p-4 rounded shadow lg:w-1/3 xl:w-1/3 m-0 mb-4  lg:mb-0 max-h-84 overflow-y-auto">
       <div class="w-full">
-        <button class="float-right mb-3" mat-raised-button color="primary">Add </button>
+        <button  mat-raised-button type="button" class="bg-blue-500 text-white mr-1 float-right">
+          <mat-icon class="text-gray-200">add</mat-icon>
+          New
+        </button>
       </div>
       <app-subject-table [subjects]="subjects"></app-subject-table>
     </div>
 
     <div class="w-full bg-white p-4 rounded shadow lg:w-2/3 xl:w-2/3 m-0 mb-4  lg:mb-0 max-h-84 overflow-y-auto">
       <div class="w-full">
-        <button class="float-right mb-3" mat-raised-button color="primary">Add </button>
+        <button  mat-raised-button type="button" class="bg-blue-500 text-white mr-1 float-right">
+          <mat-icon class="text-gray-200">add</mat-icon>
+          New
+        </button>
       </div>
       <app-teacher-table [teachers]="teachers"></app-teacher-table>
     </div>

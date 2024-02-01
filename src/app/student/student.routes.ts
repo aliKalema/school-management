@@ -6,17 +6,11 @@ import {StudentComponent} from "./component/student/student.component";
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
     path: '',
-    component: StudentComponent,
-    children: [
-      {
-        path: 'dashboard',
-        component: StudentDashboardComponent
-      },
-    ]
+    component: StudentComponent
   }
 ];

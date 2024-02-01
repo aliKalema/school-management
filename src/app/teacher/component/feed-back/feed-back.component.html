@@ -1,1 +1,32 @@
-<p>feed-back works!</p>
+<div  class="w-full flex flex-grow flex-col h-[100px]" >
+  <as-split direction="horizontal" unit="percent">
+    <as-split-area [size]="20">
+      <div class="">
+        <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto">Student FeedBack</div>
+        <mat-divider class="my-2 mx-3 "></mat-divider>
+
+        <div class="">
+          <mat-list>
+            @for (folder of folders; track folder) {
+              <mat-list-item class="hover:bg-slate-200">
+                <mat-icon matListItemIcon>message</mat-icon>
+                <div matListItemTitle>{{folder.name}}</div>
+                <div matListItemLine>{{folder.updated | date}}</div>
+              </mat-list-item>
+            }
+          </mat-list>
+
+        </div>
+      </div>
+    </as-split-area>
+    <as-split-area [size]="80">
+      <div class="w-full container items-center flex justify-between">
+        <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto"> Details </div>
+      </div>
+      <mat-divider class="my-2 mx-3 "></mat-divider>
+      <div class="mx-6 p-4  bg-white rounded-md shadow" >
+
+      </div>
+    </as-split-area>
+  </as-split>
+</div>

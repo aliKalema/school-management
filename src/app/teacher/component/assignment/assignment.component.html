@@ -1,1 +1,39 @@
-<p>assignment works!</p>
+<div  class="w-full flex flex-grow flex-col h-[100px]" >
+  <as-split direction="horizontal" unit="percent">
+    <as-split-area [size]="20">
+      <div class=" flex justify-between">
+        <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto">Assignments</div>
+        <div class="">
+          <button type="button" matTooltip="CREATE ASSIGNMENT"  class="float-right mx-2 p2 w-6 h-6 container items-center justify-center flex bg-blue-500 text-white rounded-md outline-none shadow-lg transform active:scale-75 transition-transform">
+            <mat-icon class="h-6 w-6">add</mat-icon>
+          </button>
+        </div>
+      </div>
+     <mat-divider class="my-2 mx-3 "></mat-divider>
+
+    <div class="">
+      <mat-list>
+        @for (folder of folders; track folder) {
+          <mat-list-item class="hover:bg-slate-200">
+            <mat-icon matListItemIcon>message</mat-icon>
+            <div matListItemTitle>{{folder.name}}</div>
+            <div matListItemLine>{{folder.updated | date}}</div>
+          </mat-list-item>
+        }
+      </mat-list>
+    </div>
+
+
+
+    </as-split-area>
+    <as-split-area [size]="80">
+      <div class="w-full container items-center flex justify-between">
+        <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto"> Details</div>
+      </div>
+      <mat-divider class="my-2 mx-3 "></mat-divider>
+      <div class="mx-6 p-4  bg-white rounded-md shadow" >
+
+      </div>
+    </as-split-area>
+  </as-split>
+</div>

@@ -1,1 +1,61 @@
-<p>teacher-dashboard works!</p>
+<div class="w-full p-8  mx-auto overflow-y-auto">
+  <div class="flex flex-col md:flex-row my-6 gap-3">
+    <div class="w-full bg-white p-4 rounded shadow lg:w-1/3 xl:w-1/3 m-0 mb-4 lg:mb-0" >
+      <canvas class="chart-container"  baseChart
+              [type]="'line'"
+              [data]="lineChartData"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend">
+      </canvas>
+    </div>
+
+    <div class="w-full bg-white p-4 rounded shadow lg:w-1/3 xl:w-1/3 m-0 mb-4 lg:mb-0" >
+      <canvas
+        baseChart
+        class="chart"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="barChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+
+    <div class="w-full bg-white p-4 rounded shadow lg:w-1/3 xl:w-1/3 m-0 mb-4  lg:mb-0 max-h-80" >
+      <canvas
+        baseChart
+        class="chart"
+        [data]="pieChartData"
+        [type]="pieChartType"
+        [options]="pieChartOptions">
+      </canvas>
+    </div>
+  </div>
+
+  <div class=" bg-white rounded-md shadow h-80">
+    <div  class="w-full flex flex-grow flex-col h-full" >
+      <as-split direction="horizontal" unit="percent">
+        <as-split-area [size]="20">
+          <div class=" flex justify-between">
+            <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto">Sessions</div>
+          </div>
+          <mat-divider class="my-2 mx-3 "></mat-divider>
+          <div class="overflow-y-auto">
+
+          </div>
+
+
+        </as-split-area>
+        <as-split-area [size]="80">
+          <div class="w-full container items-center flex justify-between">
+            <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto"> Students</div>
+          </div>
+          <mat-divider class="my-2 mx-3 "></mat-divider>
+          <div class="px-2">
+            <app-student-table [students]="students"></app-student-table>
+          </div>
+        </as-split-area>
+      </as-split>
+    </div>
+
+  </div>
+</div>
