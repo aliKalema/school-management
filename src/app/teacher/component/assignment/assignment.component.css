@@ -1,0 +1,51 @@
+.speech {
+  font-size: 1.2em;
+  color: #fff;
+  background: #726f6f;
+
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.speech::after {
+  display: block; width: 0; content: "";
+  border: 15px solid transparent;
+}
+
+/* (C) "CALLOUT" DIRECTIONS */
+.speech.up::after {
+  border-bottom-color:#726f6f;
+  border-top: 0;
+}
+.speech.down::after {
+  border-top-color: #726f6f;
+  border-bottom: 0;
+}
+.speech.left::after {
+  border-right-color: #726f6f;
+  border-left: 0;
+}
+.speech.right::after {
+  border-left-color: #726f6f;
+  border-right: 0;
+}
+
+.speech {
+  position: relative;
+  margin: 30px;
+}
+.speech::after { position: absolute; }
+.speech.up::after {
+  top: -15px; left: calc(50% - 15px);
+}
+.speech.down::after {
+  bottom: -15px; left: calc(50% - 15px);
+}
+.speech.left::after {
+  left: -15px; top: calc(50% - 15px);
+}
+.speech.right::after {
+  right: -15px; top: calc(50% - 15px);
+
+}

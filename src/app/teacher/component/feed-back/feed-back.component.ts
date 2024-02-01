@@ -6,6 +6,8 @@ import {MatDivider} from "@angular/material/divider";
 import {MatIcon} from "@angular/material/icon";
 import {MaterialModule} from "../../../material.module";
 import {DatePipe} from "@angular/common";
+import {Feedback, Message} from "../../../shared/interface/feedback";
+import {FeedbackService} from "../../../shared/service/feedback.service";
 
 export interface Section {
   name: string;
@@ -29,23 +31,21 @@ export class FeedBackComponent implements OnInit{
     url: "",
     expanded: false
   }
-  folders: Section[] = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    },
-  ];
-
+  private feedbackService = inject(FeedbackService);
   private navigationService: NavigationService = inject(NavigationService);
+  feedBacks: Array<Feedback> =[];
+  messages: Array<Message> = [];
   ngOnInit() {
     this.navigationService.setCurrentLocation(this.currentLocation);
+    this.feedbackService.getFeedBacks().subscribe((res)=>{
+      this.feedBacks = res;
+      if(this.feedBacks.length>0){
+        this.updateMessages(this.feedBacks[0]);
+      }
+    })
+  }
+
+  updateMessages(feedBack: Feedback) {
+    this.messages = feedBack.messages;
   }
 }

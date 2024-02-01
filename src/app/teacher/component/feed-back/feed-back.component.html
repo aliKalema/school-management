@@ -6,15 +6,11 @@
         <mat-divider class="my-2 mx-3 "></mat-divider>
 
         <div class="">
-          <mat-list>
-            @for (folder of folders; track folder) {
-              <mat-list-item class="hover:bg-slate-200">
-                <mat-icon matListItemIcon>message</mat-icon>
-                <div matListItemTitle>{{folder.name}}</div>
-                <div matListItemLine>{{folder.updated | date}}</div>
-              </mat-list-item>
+          <mat-selection-list #shoes [multiple]="false">
+            @for (feedBack of feedBacks; track feedBack) {
+              <mat-list-option [value]="feedBack" (click)="updateMessages(feedBack)">{{feedBack.class}}</mat-list-option>
             }
-          </mat-list>
+          </mat-selection-list>
 
         </div>
       </div>
@@ -24,9 +20,19 @@
         <div class="ml-2 text-xl font-semibold text-slate-600  container items-center w-auto"> Details </div>
       </div>
       <mat-divider class="my-2 mx-3 "></mat-divider>
-      <div class="mx-6 p-4  bg-white rounded-md shadow" >
-
+      <div class="px-8">
+        @for (message of messages; track message){
+          <div class="bg-gray-100 p-6 border border-slate-200 shadow mb-3 rounded-md shadow">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+              <span class="text-sm font-normal text-gray-500 ">{{message.dateTime | date}}</span>
+            </div>
+            <p class="text-sm font-normal py-2.5 text-gray-900">{{message.message}}</p>
+            <span class="text-sm font-normal text-gray-500">Delivered</span>
+          </div>
+        }
       </div>
+
+
     </as-split-area>
   </as-split>
 </div>

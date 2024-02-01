@@ -20,12 +20,6 @@ export class TeacherComponent {
       expanded: false
     },
     {
-      title: "Assignment",
-      url: 'assignment',
-      icon: 'assignment',
-      expanded: false
-    },
-    {
       title: "FeedBack",
       url: 'feedback',
       icon: 'forum',
