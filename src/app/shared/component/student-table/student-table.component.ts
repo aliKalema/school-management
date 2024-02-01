@@ -18,7 +18,7 @@ export class StudentTableComponent{
 
   selection = new SelectionModel<Student>(true, []);
 
-  displayedColumns: string[] = ['select', 'firstName', 'lastName', 'dob', 'classs', 'address', 'parentName', 'parentContact', 'subjects'];
+  displayedColumns: string[] = ['select', 'firstName', 'lastName', 'dob', 'class', 'address', 'parentName', 'parentContact'];
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     return numSelected === this.students.length;

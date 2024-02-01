@@ -3,9 +3,8 @@ export interface Student {
   firstName: string;
   lastName: string;
   dob: string;
-  classs: string;
+  class: string;
   address: string;
   parentName: string;
   contactNumber: string;
-  subjects: string[];
 }

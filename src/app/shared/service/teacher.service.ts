@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Teacher} from "../interface/teacher";
 
@@ -11,5 +11,11 @@ export class TeacherService {
 
   getTeachers(): Observable<Array<Teacher>> {
     return this.httpClient.get<Teacher[]>('assets/json/teacher.json');
+  }
+
+  getTeacher(employeeId: string): Observable<Teacher | undefined>{
+    return this.getTeachers().pipe(
+      map(teachers => teachers.find(teacher => teacher.employeeId === employeeId))
+    );
   }
 }

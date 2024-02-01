@@ -1,8 +1,11 @@
+import {Session} from "./session";
+
 export interface Teacher {
-  employeId: string;
+  employeeId: string;
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   subjectsTaught: string[];
+  sessions: Array<Session>
 }

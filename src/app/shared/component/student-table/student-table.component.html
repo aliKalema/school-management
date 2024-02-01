@@ -31,34 +31,30 @@
     </ng-container>
 
     <ng-container matColumnDef="dob">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Email</span> </th>
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">DOB</span> </th>
       <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="classs">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Employee ID</span> </th>
-      <td mat-cell *matCellDef="let element"> {{element.classs}} </td>
+    <ng-container matColumnDef="class">
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Class</span> </th>
+      <td mat-cell *matCellDef="let element"> {{element.class}} </td>
     </ng-container>
 
     <ng-container matColumnDef="address">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Address</span> </th>
       <td mat-cell *matCellDef="let element">{{element.address}}  </td>
     </ng-container>
 
     <ng-container matColumnDef="parentName">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Employee ID</span> </th>
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Parent Name</span> </th>
       <td mat-cell *matCellDef="let element"> {{element.parentName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="parentContact">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
-      <td mat-cell *matCellDef="let element">{{element.parentContact}}  </td>
+      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Parent Contact</span> </th>
+      <td mat-cell *matCellDef="let element">{{element.contactNumber}}  </td>
     </ng-container>
 
-    <ng-container matColumnDef="subjects">
-      <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by worth"> <span class="flex justify-center font-semibold">Subjects Taught</span> </th>
-      <td mat-cell *matCellDef="let element">{{element.subjects}}  </td>
-    </ng-container>
 
     <ng-container matColumnDef="action">
       <th class="border-b-slate-700 border-b-4 bg-gray-200" mat-header-cell *matHeaderCellDef><span class="flex justify-center font-semibold">Action</span></th>

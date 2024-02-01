@@ -1,0 +1,68 @@
+[
+  {
+    "period": "2022 Term 2",
+    "data":[
+      {
+        "period": "ENGLISH",
+        "value": 50
+      },
+      {
+        "period": "KISWAHILI",
+        "value": 60
+      }
+    ]
+  },
+  {
+    "period": "2022 Term 3",
+    "data":[
+      {
+        "period": "ENGLISH",
+        "value": 48
+      },
+      {
+        "period": "KISWAHILI",
+        "value": 62
+      }
+    ]
+  },
+  {
+    "period": "2023 Term 1",
+    "data":[
+      {
+        "period": "ENGLISH",
+        "value": 55
+      },
+      {
+        "period": "KISWAHILI",
+        "value": 78
+      }
+    ]
+  },
+  {
+    "period": "2023 Term 2",
+    "data":[
+      {
+        "period": "ENGLISH",
+        "value": 55
+      },
+      {
+        "period": "KISWAHILI",
+        "value": 72
+      }
+    ]
+  },
+  {
+    "period": "2023 Term 3",
+    "data":[
+      {
+        "period": "ENGLISH",
+        "value": 60
+      },
+      {
+        "period": "KISWAHILI",
+        "value": 80
+      }
+    ]
+  }
+
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "dob": "2002-05-15",
+    "class": "Grade 10",
+    "address": "123 Main Street",
+    "parentName": "Jane Doe",
+    "contactNumber": "555-1234"
+  },
+  {
+    "id": 2,
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "dob": "2003-02-20",
+    "class": "Grade 9",
+    "address": "456 Oak Avenue",
+    "parentName": "Bob Smith",
+    "contactNumber": "555-5678"
+  },
+  {
+    "id": 3,
+    "firstName": "Charlie",
+    "lastName": "Johnson",
+    "dob": "2002-08-10",
+    "class": "Grade 4",
+    "address": "789 Pine Street",
+    "parentName": "David Johnson",
+    "contactNumber": "555-9012"
+  },
+  {
+    "id": 4,
+    "firstName": "Eva",
+    "lastName": "Brown",
+    "dob": "2003-11-05",
+    "class": "Grade 8",
+    "address": "101 Elm Road",
+    "parentName": "Frank Brown",
+    "contactNumber": "555-3456"
+  },
+  {
+    "id": 5,
+    "firstName": "Gabriel",
+    "lastName": "Miller",
+    "dob": "2002-04-12",
+    "class": "Grade 5",
+    "address": "202 Cedar Lane",
+    "parentName": "Helen Miller",
+    "contactNumber": "555-7890"
+  },
+  {
+    "id": 6,
+    "firstName": "Ivy",
+    "lastName": "Taylor",
+    "dob": "2003-09-18",
+    "class": "Grade 2",
+    "address": "303 Birch Street",
+    "parentName": "Jack Taylor",
+    "contactNumber": "555-2345"
+  },
+  {
+    "id": 7,
+    "firstName": "Kevin",
+    "lastName": "Clark",
+    "dob": "2002-12-25",
+    "class": "Grade 3",
+    "address": "404 Maple Avenue",
+    "parentName": "Lisa Clark",
+    "contactNumber": "555-6789"
+  },
+  {
+    "id": 8,
+    "firstName": "Mia",
+    "lastName": "Anderson",
+    "dob": "2003-07-08",
+    "class": "Grade 9",
+    "address": "505 Walnut Road",
+    "parentName": "Nathan Anderson",
+    "contactNumber": "555-1235"
+  },
+  {
+    "id": 9,
+    "firstName": "Oliver",
+    "lastName": "White",
+    "dob": "2002-06-30",
+    "class": "Grade 5",
+    "address": "606 Oak Street",
+    "parentName": "Olivia White",
+    "contactNumber": "555-6780"
+  },
+  {
+    "id": 10,
+    "firstName": "Penelope",
+    "lastName": "Harris",
+    "dob": "2003-03-17",
+    "class": "Grade 8",
+    "address": "707 Pine Lane",
+    "parentName": "Paul Harris",
+    "contactNumber": "555-2346"
+  },
+  {
+    "id": 11,
+    "firstName": "Quincy",
+    "lastName": "Martin",
+    "dob": "2002-10-22",
+    "class": "Grade 12",
+    "address": "808 Cedar Avenue",
+    "parentName": "Rachel Martin",
+    "contactNumber": "555-7891"
+  },
+  {
+    "id": 12,
+    "firstName": "Samantha",
+    "lastName": "Baker",
+    "dob": "2003-05-07",
+    "class": "Grade 7",
+    "address": "909 Birch Road",
+    "parentName": "Steve Baker",
+    "contactNumber": "555-3457"
+  },
+  {
+    "id": 13,
+    "firstName": "Thomas",
+    "lastName": "Ward",
+    "dob": "2002-02-14",
+    "class": "Grade 10",
+    "address": "1010 Elm Street",
+    "parentName": "Tina Ward",
+    "contactNumber": "555-9013"
+  },
+  {
+    "id": 14,
+    "firstName": "Ursula",
+    "lastName": "Fisher",
+    "dob": "2003-09-03",
+    "class": "Grade 9",
+    "address": "1111 Cedar Lane",
+    "parentName": "Ulysses Fisher",
+    "contactNumber": "555-5679"
+  },
+  {
+    "id": 15,
+    "firstName": "Victor",
+    "lastName": "Gomez",
+    "dob": "2002-11-28",
+    "class": "Grade 5",
+    "address": "1212 Pine Avenue",
+    "parentName": "Vanessa Gomez",
+    "contactNumber": "555-2347"
+  },
+  {
+    "id": 16,
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "dob": "2004-08-10",
+    "class": "Grade 8",
+    "address": "789 Elm Street",
+    "parentName": "David Johnson",
+    "contactNumber": "555-9012"
+  },
+  {
+    "id": 17,
+    "firstName": "Emily",
+    "lastName": "Garcia",
+    "dob": "2005-06-25",
+    "class": "Grade 7",
+    "address": "1011 Maple Street",
+    "parentName": "Maria Garcia",
+    "contactNumber": "555-3456"
+  },
+  {
+    "id": 18,
+    "firstName": "David",
+    "lastName": "Brown",
+    "dob": "2001-09-12",
+    "class": "Grade 4",
+    "address": "234 Elm Street",
+    "parentName": "Susan Brown",
+    "contactNumber": "555-2345"
+  },
+  {
+    "id": 19,
+    "firstName": "Jessica",
+    "lastName": "Miller",
+    "dob": "2004-03-18",
+    "class": "Grade 4",
+    "address": "567 Maple Street",
+    "parentName": "Charles Miller",
+    "contactNumber": "555-6789"
+  },
+  {
+    "id": 20,
+    "firstName": "Christopher",
+    "lastName": "Davis",
+    "dob": "2003-11-27",
+    "class": "Grade 5",
+    "address": "890 Pine Street",
+    "parentName": "Thomas Davis",
+    "contactNumber": "555-0123"
+  },
+  {
+    "id": 21,
+    "firstName": "Amanda",
+    "lastName": "Wilson",
+    "dob": "2005-07-04",
+    "class": "Grade 9",
+    "address": "123 Oak Avenue",
+    "parentName": "Lisa Wilson",
+    "contactNumber": "555-4567"
+  },
+  {
+    "id": 22,
+    "firstName": "Matthew",
+    "lastName": "Clark",
+    "dob": "2002-02-19",
+    "class": "Grade 8",
+    "address": "456 Birch Street",
+    "parentName": "Daniel Clark",
+    "contactNumber": "555-8901"
+  },
+  {
+    "id": 23,
+    "firstName": "Sarah",
+    "lastName": "Rodriguez",
+    "dob": "2006-05-10",
+    "class": "Grade 7",
+    "address": "789 Elm Street",
+    "parentName": "Isabella Rodriguez",
+    "contactNumber": "555-2340"
+  },
+  {
+    "id": 24,
+    "firstName": "Joseph",
+    "lastName": "Lewis",
+    "dob": "2004-01-07",
+    "class": "Grade 5",
+    "address": "1011 Maple Street",
+    "parentName": "Michael Lewis",
+    "contactNumber": "555-6780"
+  },
+  {
+    "id": 25,
+    "firstName": "Ashley",
+    "lastName": "Walker",
+    "dob": "2005-12-21",
+    "class": "Grade 11",
+    "address": "2345 Elm Street",
+    "parentName": "Jennifer Walker",
+    "contactNumber": "555-0120"
+  },
+  {
+    "id": 26,
+    "firstName": "William",
+    "lastName": "Hall",
+    "dob": "2003-06-15",
+    "class": "Grade 10",
+    "address": "5678 Maple Street",
+    "parentName": "Richard Hall",
+    "contactNumber": "555-4560"
+  },
+  {
+    "id": 27,
+    "firstName": "Jennifer",
+    "lastName": "Young",
+    "dob": "2006-09-28",
+    "class": "Grade 9",
+    "address": "8901 Pine Street",
+    "parentName": "Margaret Young",
+    "contactNumber": "555-8900"
+  }
+]
